@@ -1,0 +1,55 @@
+<!-- #include tool-top gui/blocks/tool-top.htm;image=#image;onclick=#onclick;1; -->
+<!-- #include tool-row-help gui/blocks/tool-row-help.htm;name=MScaling_1; help_ext=MScaling_1;1; -->
+<tr width='100%'>
+    <td ALIGN='left' width='100%'><b>MScaling plugin</b></td>
+</tr>
+
+<!-- #include row_table_off gui/blocks/row_table_off.htm;1; -->
+
+<!-- #include tool-row-help gui/blocks/tool-row-help.htm;name=MScaling_2; help_ext=MScaling_2;1; -->
+<tr>
+    <td ALIGN='right' width='10%'><b>Scale:</b></td>
+    <td ALIGN='left' width='90%'><b><a href="spy.MScaling.shrink()">Shrink</a></b>|<b><a href="spy.MScaling.grow()">Grow</a></b></td>
+</tr>
+<tr>
+    <td ALIGN='right' width='10%'><b>Bonds:</b></td>
+    <td ALIGN='left' width='90%'><b><a href="spy.MScaling.elongate()">Elongate</a></b>|<b><a href="spy.MScaling.shorten()">Shorten</a></b></td>
+</tr>
+<tr>
+    <td ALIGN='right' width='10%'><b>Model:</b></td>
+    <td ALIGN='left' width='90%'><b><a href="spy.MScaling.fuse()">Fuse</a></b>|<b><a href="spy.MScaling.complete_fragments()">Complete</a></b></td>
+</tr>
+<tr>
+    <td ALIGN='right' VALIGN='center' width='10%'><b>Scale(A):</b></td>
+    <td ALIGN='left' width='90%'>
+        <input
+                type='text'
+                width="20%"
+                name='SCALE'
+                value='spy.GetParam(mscaling.delta_scale)'
+                min='-4'
+                max='4'
+                onchange='spy.MScaling.set_delta_scale(html.GetValue(~name~))'
+        />
+    </td>
+</tr>
+<tr>
+    <td ALIGN='right' VALIGN='center' width='10%'><b>Scale(B):</b></td>
+    <td ALIGN='left' width='90%'>
+        <input
+                type='text'
+                width="20%"
+                name='RBONDSSCALE'
+                value='spy.GetParam(mscaling.delta_rbonds_scale)'
+                min='-4'
+                max='4'
+                onchange='spy.MScaling.set_delta_rbonds_scale(html.GetValue(~name~))'
+        />
+    </td>
+</tr>
+
+
+<!-- #include row_table_off gui/blocks/row_table_off.htm;1; -->
+
+<!-- #include tool-footer gui/blocks/tool-footer.htm;colspan=2;1; -->
+  

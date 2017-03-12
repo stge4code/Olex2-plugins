@@ -1,0 +1,17 @@
+
+mscaling{
+  gui{
+    location = 'view'
+      .type = str
+      .help = The tab item where the MScaling GUI shall appear.
+    before = 'geometry'
+      .type = str
+      .help = The tool before which the MScaling GUI shall appear.
+    }
+  delta_scale = 0.2
+    .type = float
+    .help = Defines the scale of the selected atoms.
+  delta_rbonds_scale = 0.3
+    .type = float
+    .help = Defines the bonds scale of the selected atoms.
+}
