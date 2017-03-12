@@ -133,7 +133,7 @@ class MScaling(PT):
             print('Invalid value for scale provided')
             return
         OV.SetParam('mscaling.delta_scale', scale)
-        #print "Scale factor was changed to {}".format(OV.GetParam('mscaling.delta_scale'))
+
 
     def set_delta_rbonds_scale(self, rbonds_scale):
         if ',' in rbonds_scale:
@@ -150,22 +150,6 @@ class MScaling(PT):
 
     def near(self, tmpf, tmpidf, n=3):
 
-        '''result = True
-        if round(tmpf[0], n) != round(tmpidf[0], n): result = result and False
-        if round(tmpf[1], n) != round(tmpidf[1], n): result = result and False
-        if round(tmpf[2], n) != round(tmpidf[2], n): result = result and False
-        '''
-        '''
-        eps = 0.001
-        if abs(tmpf[0] - tmpidf[0]) > eps:
-            return False
-        elif abs(tmpf[1] - tmpidf[1]) > eps:
-            return False
-        elif abs(tmpf[2] - tmpidf[2]) > eps:
-            return False
-        else:
-            return True
-        '''
         if round(tmpf[0], n) != round(tmpidf[0], n):
             return False
         elif round(tmpf[1], n) != round(tmpidf[1], n):
@@ -208,9 +192,6 @@ class MScaling(PT):
         if tmptype in self.rbonds:
             return self.rbonds[tmptype]
         else:
-            #out = olex.f("info({})".format(name))
-            #print len(out)
-            #print re.search(r'Atom[*]+\n([*]+)\n', olex.f("info({})".format(name))).group(0)
             return self.rbonds['Q']
 
     def rescale(self, scale, rbonds_scale):
@@ -229,7 +210,6 @@ class MScaling(PT):
             if '_' not in name:
                 if name not in self.atoms_pool:
                     id = self.findID(name, ids)
-                    #tmpf = [float(x) for x in (olx.xf.au.GetAtomCrd(id)).split(',')]
                     tmpf = ids[id][1]
                     self.atoms_pool[name] = Atom(fx=tmpf[0], fy=tmpf[1], fz=tmpf[2], name=name, au=True, id=id, rbond=self.get_rbond(name))
                     atoms.append(self.atoms_pool[name])
@@ -254,7 +234,6 @@ class MScaling(PT):
             if '_' not in name:
                 if name not in self.atoms_pool:
                     id = self.findID(name, ids)
-                    #tmpf = [float(x) for x in (olx.xf.au.GetAtomCrd(id)).split(',')]
                     tmpf = ids[id][1]
                     self.atoms_pool[name] = Atom(fx=tmpf[0], fy=tmpf[1], fz=tmpf[2], name=name, au=True, id=id,
                                                  rbond=self.get_rbond(name))
